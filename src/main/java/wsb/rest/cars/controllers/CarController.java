@@ -89,4 +89,13 @@ public class CarController {
         carService.delete(id);
         return ResponseEntity.noContent().build();
     }
+    @GetMapping("/priceRange")
+    ResponseEntity<List<Car>>findByPriceRange(@RequestParam("minPrice") Double minPrice, @RequestParam("maxPrice") Double maxPrice){
+        List<Car>cars = carService.findByPriceRange(minPrice, maxPrice);
+        if (!cars.isEmpty()){
+            return ResponseEntity.ok(cars);
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

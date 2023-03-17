@@ -74,4 +74,10 @@ Content-Type: application/json
 ### delete what u need
 DELETE http://localhost:8080/cars/1
 
+### find cars in price range | 0.0-20000.0
+GET http://localhost:8080/cars/priceRange?minPrice=0.0&maxPrice=20000.0
+
+### find cars in price range | 20000.0-30000.0
+GET http://localhost:8080/cars/priceRange?minPrice=20000.0&maxPrice=30000.0
+
 

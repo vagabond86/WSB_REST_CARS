@@ -88,7 +88,7 @@ public class CarRepository {
 
     public Car update(Integer id, Car car) {
         Car carToUpdate = findCar(id);
-        if (carToUpdate == null){
+        if (carToUpdate == null) {
             return null;
         }
 
@@ -105,14 +105,19 @@ public class CarRepository {
         return carToUpdate;
 
 
-
     }
 
     public void delete(Integer id) {
         Car carToRemove = findCar(id);
-        if (carToRemove == null){
+        if (carToRemove == null) {
             return;
         }
         cars.remove(carToRemove);
+    }
+
+    public List<Car> findByPriceRange(Double minPrice, Double maxPrice) {
+        return cars.stream()
+                .filter(car -> car.getPrice() >= minPrice && car.getPrice() <= maxPrice)
+                .collect(Collectors.toList());
     }
 }

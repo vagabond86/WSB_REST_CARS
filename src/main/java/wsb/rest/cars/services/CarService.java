@@ -46,4 +46,8 @@ public class CarService {
     public void delete(Integer id) {
         carRepository.delete(id);
     }
+
+    public List<Car> findByPriceRange(Double minPrice, Double maxPrice) {
+        return carRepository.findByPriceRange(minPrice, maxPrice);
+    }
 }
