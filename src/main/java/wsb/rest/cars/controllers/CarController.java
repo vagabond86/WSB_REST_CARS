@@ -74,4 +74,14 @@ public class CarController {
             return ResponseEntity.unprocessableEntity().build();
         }
     }
+
+    @PutMapping("/{id}")
+    ResponseEntity<Car> update(@PathVariable Integer id, @RequestBody Car car) {
+        Car updatedCar = carService.update(id, car);
+        if (updatedCar != null) {
+            return ResponseEntity.ok(updatedCar);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

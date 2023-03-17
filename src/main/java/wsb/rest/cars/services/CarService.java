@@ -38,4 +38,8 @@ public class CarService {
     public Car create(Car car) {
         return carRepository.create(car);
     }
+
+    public Car update(Integer id, Car car) {
+        return carRepository.update(id, car);
+    }
 }

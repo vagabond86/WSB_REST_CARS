@@ -85,4 +85,26 @@ public class CarRepository {
         cars.add(createdCar);
         return createdCar;
     }
+
+    public Car update(Integer id, Car car) {
+        Car carToUpdate = findCar(id);
+        if (carToUpdate == null){
+            return null;
+        }
+
+        carToUpdate.setBodyType(car.getBodyType());
+        carToUpdate.setBrand(car.getBrand());
+        carToUpdate.setModel(car.getModel());
+        carToUpdate.setGeneration(car.getGeneration());
+        carToUpdate.setPrice(car.getPrice());
+        carToUpdate.setProductionYear(car.getProductionYear());
+        carToUpdate.setFuelType(car.getFuelType());
+        carToUpdate.setMileage(carToUpdate.getMileage());
+        carToUpdate.setTransmissionType(car.getTransmissionType());
+
+        return carToUpdate;
+
+
+
+    }
 }

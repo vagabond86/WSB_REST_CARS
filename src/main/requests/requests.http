@@ -55,4 +55,20 @@ Content-Type: application/json
   "transmissionType": "automatic"
 }
 
+### update car information | Toyota Camry
+PUT http://localhost:8080/cars/1
+Content-Type: application/json
+
+{
+  "bodyType": "sedan",
+  "brand": "Toyota",
+  "model": "Camry",
+  "generation": "XV50",
+  "price": 20000.0,
+  "productionYear": 2017,
+  "fuelType": "diesel",
+  "mileage": 150000,
+  "transmissionType": "manual"
+}
+
 
