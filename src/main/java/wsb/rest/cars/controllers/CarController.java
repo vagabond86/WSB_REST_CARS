@@ -27,8 +27,8 @@ public class CarController {
     }
 
     @GetMapping("/{id}")
-    ResponseEntity findAria(@PathVariable Integer id) {
-        Car car = carService.find(id);
+    ResponseEntity findCar(@PathVariable Integer id) {
+        Car car = carService.findCar(id);
         if (car != null) {
             return ResponseEntity.ok(car);
         } else {
@@ -45,5 +45,24 @@ public class CarController {
             return ResponseEntity.notFound().build();
         }
 
+    }
+    @GetMapping("/transmissionType/{transmissionType}")
+    ResponseEntity<List<Car>> findTransmissionType(@PathVariable String transmissionType ){
+        List<Car> cars = carService.findTransmission(transmissionType);
+        if (!cars.isEmpty()){
+            return ResponseEntity.ok(cars);
+        }else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/fuelType/{fuelType}")
+    ResponseEntity<List<Car>> findFuelType(@PathVariable String fuelType ){
+        List<Car> cars = carService.findFuel(fuelType);
+        if (!cars.isEmpty()){
+            return ResponseEntity.ok(cars);
+        }else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

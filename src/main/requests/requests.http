@@ -4,8 +4,20 @@ GET http://localhost:8080/cars
 ### find one car
 GET http://localhost:8080/cars/15
 
-### find sedan
+### find bodyType | sedan
 GET http://localhost:8080/cars/bodyType/sedan
 
-### find coupe
+### find bodyType | coupe
 GET http://localhost:8080/cars/bodyType/coupe
+
+### find transmissionType | manual
+GET http://localhost:8080/cars/transmissionType/manual
+
+### find transmissionType | automatic
+GET http://localhost:8080/cars/transmissionType/automatic
+
+### find fuelType | gasoline
+GET http://localhost:8080/cars/fuelType/gasoline
+
+### find fuelType | diesel
+GET http://localhost:8080/cars/fuelType/diesel

@@ -19,11 +19,19 @@ public class CarService {
         return carRepository.findAll();
     }
 
-    public Car find(Integer id) {
-        return carRepository.find(id);
+    public Car findCar(Integer id) {
+        return carRepository.findCar(id);
     }
 
     public List<Car> findBody(String bodyType) {
         return carRepository.findBody(bodyType);
+    }
+
+    public List<Car> findTransmission(String transmissionType) {
+        return carRepository.findTransmission(transmissionType);
+    }
+
+    public List<Car> findFuel(String fuelType) {
+        return carRepository.findFuel(fuelType);
     }
 }

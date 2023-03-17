@@ -41,7 +41,7 @@ public class CarRepository {
         return cars;
     }
 
-    public Car find(Integer id) {
+    public Car findCar(Integer id) {
         return cars.stream()
                 .filter(car -> car.getId().equals(id))
                 .findFirst()
@@ -52,5 +52,15 @@ public class CarRepository {
      return cars.stream()
              .filter(car -> car.getBodyType().equals(bodyType))
              .collect(Collectors.toList());
+    }
+
+    public List<Car> findTransmission(String transmissionType) {
+        return cars.stream()
+                .filter(car -> car.getTransmissionType().equals(transmissionType))
+                .collect(Collectors.toList());
+    }
+
+    public List<Car> findFuel(String fuelType) {
+        return cars.stream().filter(car -> car.getFuelType().equals(fuelType)).collect(Collectors.toList());
     }
 }
