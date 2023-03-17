@@ -21,3 +21,38 @@ GET http://localhost:8080/cars/fuelType/gasoline
 
 ### find fuelType | diesel
 GET http://localhost:8080/cars/fuelType/diesel
+
+### create new car | VW Golf
+POST http://localhost:8080/cars
+Content-Type: application/json
+
+{
+  "bodyType": "hatchback",
+  "brand": "Volkswagen",
+  "model": "Golf",
+  "generation": "Mk7",
+  "price": 18000.0,
+  "productionYear": 2014,
+  "fuelType": "petrol",
+  "mileage": 50000,
+  "transmissionType": "manual"
+
+}
+
+### create new car | Toyota RAV4
+POST http://localhost:8080/cars
+Content-Type: application/json
+
+{
+  "bodyType": "SUV",
+  "brand": "Toyota",
+  "model": "RAV4",
+  "generation": "XA30",
+  "price": 12000.0,
+  "productionYear": 2007,
+  "fuelType": "petrol",
+  "mileage": 120000,
+  "transmissionType": "automatic"
+}
+
+

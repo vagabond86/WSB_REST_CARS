@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 @Repository
 public class CarRepository {
+    static Integer currentId = 26;
     private final List<Car> cars = new LinkedList<>() {{
         add(new Car(1, "sedan", "Toyota", "Camry", "XV50", 25000.0, 2018, "gasoline", 50000, "automatic"));
         add(new Car(2, "hatchback", "Honda", "Civic", "FK8", 30000.0, 2019, "gasoline", 35000, "manual"));
@@ -48,10 +49,10 @@ public class CarRepository {
                 .orElse(null);
     }
 
-    public List<Car> findBody(String bodyType){
-     return cars.stream()
-             .filter(car -> car.getBodyType().equals(bodyType))
-             .collect(Collectors.toList());
+    public List<Car> findBody(String bodyType) {
+        return cars.stream()
+                .filter(car -> car.getBodyType().equals(bodyType))
+                .collect(Collectors.toList());
     }
 
     public List<Car> findTransmission(String transmissionType) {
@@ -61,6 +62,27 @@ public class CarRepository {
     }
 
     public List<Car> findFuel(String fuelType) {
-        return cars.stream().filter(car -> car.getFuelType().equals(fuelType)).collect(Collectors.toList());
+        return cars.stream()
+                .filter(car -> car.getFuelType().equals(fuelType))
+                .collect(Collectors.toList());
+    }
+
+
+    public Car create(Car car) {
+        Car createdCar = new Car(
+                currentId++,
+                car.getBodyType(),
+                car.getBrand(),
+                car.getModel(),
+                car.getGeneration(),
+                car.getPrice(),
+                car.getProductionYear(),
+                car.getFuelType(),
+                car.getMileage(),
+                car.getTransmissionType()
+        );
+
+        cars.add(createdCar);
+        return createdCar;
     }
 }

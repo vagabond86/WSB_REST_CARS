@@ -34,4 +34,8 @@ public class CarService {
     public List<Car> findFuel(String fuelType) {
         return carRepository.findFuel(fuelType);
     }
+
+    public Car create(Car car) {
+        return carRepository.create(car);
+    }
 }

@@ -1,10 +1,8 @@
 package wsb.rest.cars.controllers;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import wsb.rest.cars.models.Car;
 import wsb.rest.cars.services.CarService;
 
@@ -46,23 +44,34 @@ public class CarController {
         }
 
     }
+
     @GetMapping("/transmissionType/{transmissionType}")
-    ResponseEntity<List<Car>> findTransmissionType(@PathVariable String transmissionType ){
+    ResponseEntity<List<Car>> findTransmissionType(@PathVariable String transmissionType) {
         List<Car> cars = carService.findTransmission(transmissionType);
-        if (!cars.isEmpty()){
+        if (!cars.isEmpty()) {
             return ResponseEntity.ok(cars);
-        }else {
+        } else {
             return ResponseEntity.notFound().build();
         }
     }
 
     @GetMapping("/fuelType/{fuelType}")
-    ResponseEntity<List<Car>> findFuelType(@PathVariable String fuelType ){
+    ResponseEntity<List<Car>> findFuelType(@PathVariable String fuelType) {
         List<Car> cars = carService.findFuel(fuelType);
-        if (!cars.isEmpty()){
+        if (!cars.isEmpty()) {
             return ResponseEntity.ok(cars);
-        }else {
+        } else {
             return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping
+    ResponseEntity<Car> create(@RequestBody Car car) {
+        Car createdCar = carService.create(car);
+        if (createdCar != null) {
+            return ResponseEntity.status(HttpStatus.CREATED).body(createdCar);
+        } else {
+            return ResponseEntity.unprocessableEntity().build();
         }
     }
 }
