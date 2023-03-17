@@ -1,0 +1,2 @@
+### find all cars
+GET http://localhost:8080/cars

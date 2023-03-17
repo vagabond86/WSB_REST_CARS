@@ -1,0 +1,13 @@
+package wsb.rest.cars;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class WsbRestCarsApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(WsbRestCarsApplication.class, args);
+    }
+
+}
