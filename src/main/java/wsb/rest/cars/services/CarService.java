@@ -18,4 +18,12 @@ public class CarService {
     public List<Car> findAll() {
         return carRepository.findAll();
     }
+
+    public Car find(Integer id) {
+        return carRepository.find(id);
+    }
+
+    public List<Car> findBody(String bodyType) {
+        return carRepository.findBody(bodyType);
+    }
 }

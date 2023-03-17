@@ -1,2 +1,11 @@
 ### find all cars
 GET http://localhost:8080/cars
+
+### find one car
+GET http://localhost:8080/cars/15
+
+### find sedan
+GET http://localhost:8080/cars/bodyType/sedan
+
+### find coupe
+GET http://localhost:8080/cars/bodyType/coupe

@@ -5,6 +5,8 @@ import wsb.rest.cars.models.Car;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Repository
 public class CarRepository {
     private final List<Car> cars = new LinkedList<>() {{
@@ -37,5 +39,18 @@ public class CarRepository {
 
     public List<Car> findAll() {
         return cars;
+    }
+
+    public Car find(Integer id) {
+        return cars.stream()
+                .filter(car -> car.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public List<Car> findBody(String bodyType){
+     return cars.stream()
+             .filter(car -> car.getBodyType().equals(bodyType))
+             .collect(Collectors.toList());
     }
 }
