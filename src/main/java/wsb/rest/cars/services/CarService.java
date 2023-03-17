@@ -42,4 +42,8 @@ public class CarService {
     public Car update(Integer id, Car car) {
         return carRepository.update(id, car);
     }
+
+    public void delete(Integer id) {
+        carRepository.delete(id);
+    }
 }

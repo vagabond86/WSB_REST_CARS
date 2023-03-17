@@ -71,4 +71,7 @@ Content-Type: application/json
   "transmissionType": "manual"
 }
 
+### delete what u need
+DELETE http://localhost:8080/cars/1
+
 

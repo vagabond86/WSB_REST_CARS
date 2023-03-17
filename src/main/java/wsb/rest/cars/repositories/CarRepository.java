@@ -107,4 +107,12 @@ public class CarRepository {
 
 
     }
+
+    public void delete(Integer id) {
+        Car carToRemove = findCar(id);
+        if (carToRemove == null){
+            return;
+        }
+        cars.remove(carToRemove);
+    }
 }

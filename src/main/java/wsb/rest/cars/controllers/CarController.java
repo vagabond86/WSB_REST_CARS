@@ -84,4 +84,9 @@ public class CarController {
             return ResponseEntity.notFound().build();
         }
     }
+    @DeleteMapping("/{id}")
+    ResponseEntity<Void> delete(@PathVariable Integer id){
+        carService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }
